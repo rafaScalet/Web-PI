@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "biome check --write",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky",
+    "lint-staged": "lint-staged",
+    "commit": "cz"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.15",
@@ -20,8 +23,20 @@
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react-swc": "^3.8.0",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
     "globals": "^15.15.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
     "typescript": "~5.7.2",
     "vite": "^6.2.0"
+  },
+  "lint-staged": {
+    "*.(ts|json|jsonc)": "pnpm lint"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
